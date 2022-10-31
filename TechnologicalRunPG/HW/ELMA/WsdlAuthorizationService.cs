@@ -67,7 +67,7 @@ namespace TechnologicalRunPG
             {
                 WebOperationContext.Current.OutgoingRequest.Headers.Add("ApplicationToken",
 
-                "68B88A00338A40CCCF801A3D013322AED7E704A4DE7EE30F2831A338C1E6E659FBDA5D196CD3006CB6DF29CB7818FCC26716155C3A322AE9D43D5C8207C59216");
+                "null");
                 try
                 {
                     ServicePointManager.ServerCertificateValidationCallback = (senderX, certificate, chain, sslPolicyErrors) => { return true; };
@@ -85,7 +85,7 @@ namespace TechnologicalRunPG
                     {
                         string url1 = "https://elma.eriskip.com/API/REST/Files/Download?uid=" + result[0];
                         //параметры запроса передаём в самом url, к которому будем обращаться
-                        var url = string.Format(url1, "68B88A00338A40CCCF801A3D013322AED7E704A4DE7EE30F2831A338C1E6E659FBDA5D196CD3006CB6DF29CB7818FCC26716155C3A322AE9D43D5C8207C59216");
+                        var url = string.Format(url1, "null");
 
                         //генерация запроса
                         HttpWebRequest req = WebRequest.Create(url) as HttpWebRequest;
