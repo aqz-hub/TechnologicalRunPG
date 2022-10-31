@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.elma-bpm.ru/api/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.elma-bpm.ru/api/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding-ELMA_IFilesService1_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.elma-bpm.ru/api/Imports">
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Files?xsd=xsd0" namespace="http://www.elma-bpm.ru/api/" />
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Files?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EleWise.ELMA.Services.Public" />
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Files?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Files?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Files?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFilesService_FileSize_InputMessage">
+    <wsdl:part name="parameters" element="tns:FileSize" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_FileSize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FileSizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_FileSize_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/EleWise.ELMA.Services.Public" name="detail" element="q1:PublicServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_Download_InputMessage">
+    <wsdl:part name="parameters" element="tns:Download" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_Download_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_Download_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/EleWise.ELMA.Services.Public" name="detail" element="q2:PublicServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_Upload_InputMessage">
+    <wsdl:part name="parameters" element="tns:Upload" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_Upload_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_Upload_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/EleWise.ELMA.Services.Public" name="detail" element="q3:PublicServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_PreviewFileTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewFileTypes" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_PreviewFileTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PreviewFileTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_PreviewFileTypes_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/EleWise.ELMA.Services.Public" name="detail" element="q4:PublicServiceException" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_DownloadPreview_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadPreview" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_DownloadPreview_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadPreviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFilesService_DownloadPreview_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/EleWise.ELMA.Services.Public" name="detail" element="q5:PublicServiceException" />
+  </wsdl:message>
+  <wsdl:portType name="IFilesService">
+    <wsdl:documentation>
+      <summary>Сервис для работы с бинарными файлами</summary>
+    </wsdl:documentation>
+    <wsdl:operation name="FileSize">
+      <wsdl:documentation>
+        <summary>Получить размер файла</summary>
+        <returns>Размер файла в байтах</returns>
+        <param name="uid">Идентификатор файла</param>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/FileSize" message="tns:IFilesService_FileSize_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/FileSizeResponse" message="tns:IFilesService_FileSize_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/FileSizePublicServiceExceptionFault" name="PublicServiceExceptionFault" message="tns:IFilesService_FileSize_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Download">
+      <wsdl:documentation>
+        <summary>Скачать файл с сервера. Поддерживается докачка файла через заголовок "Range" по стандарту rfc2616, с ограничением на один интервал</summary>
+        <returns>Содержимое файла в потоке</returns>
+        <param name="uid">Идентификатор файла</param>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/Download" message="tns:IFilesService_Download_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/DownloadResponse" message="tns:IFilesService_Download_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api//DownloadPublicServiceExceptionFault" name="PublicServiceExceptionFault" message="tns:IFilesService_Download_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <wsdl:documentation>
+        <summary>Закачать файл на сервер. Имя файла должно передаваться в заголовоке запроса "FileName", при этом необходимо имя кодировать в формат URLEncode. Если временный файл ранее уже передавался то можно передать заголовок "FileGuid"</summary>
+        <returns>Идентификатор файла</returns>
+        <param name="body">Содержимое файла в потоке</param>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/Upload" message="tns:IFilesService_Upload_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/UploadResponse" message="tns:IFilesService_Upload_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api//UploadPublicServiceExceptionFault" name="PublicServiceExceptionFault" message="tns:IFilesService_Upload_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PreviewFileTypes">
+      <wsdl:documentation>
+        <summary>Список расширений файлов, для которых генерится превью в HTML</summary>
+        <returns>Список расширений файлов</returns>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/PreviewFileTypes" message="tns:IFilesService_PreviewFileTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/PreviewFileTypesResponse" message="tns:IFilesService_PreviewFileTypes_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api//PreviewFileTypesPublicServiceExceptionFault" name="PublicServiceExceptionFault" message="tns:IFilesService_PreviewFileTypes_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPreview">
+      <wsdl:documentation>
+        <summary>Скачать превью файла с сервера в формате ZIP. Поддерживается докачка файла через заголовок "Range" по стандарту rfc2616, с ограничением на один интервал</summary>
+        <returns>Превью файла в потоке в формате ZIP</returns>
+        <param name="uid">Идентификатор файла</param>
+      </wsdl:documentation>
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/DownloadPreview" message="tns:IFilesService_DownloadPreview_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/IFilesService/DownloadPreviewResponse" message="tns:IFilesService_DownloadPreview_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api//DownloadPreviewPublicServiceExceptionFault" name="PublicServiceExceptionFault" message="tns:IFilesService_DownloadPreview_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding-ELMA_IFilesService" type="tns:IFilesService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FileSize">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/FileSize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Download">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/Download" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/Upload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PreviewFileTypes">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/PreviewFileTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPreview">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/DownloadPreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding-ELMA_IFilesService1" type="tns:IFilesService">
+    <wsp:PolicyReference URI="#BasicHttpBinding-ELMA_IFilesService1_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FileSize">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/FileSize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Download">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/Download" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Upload">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/Upload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="PreviewFileTypes">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/PreviewFileTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadPreview">
+      <soap:operation soapAction="http://www.elma-bpm.ru/api/IFilesService/DownloadPreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="PublicServiceExceptionFault">
+        <soap:fault use="literal" name="PublicServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1edcf394-6360-4bcd-aaf7-ed69de7023dd" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://elma.eriskip.com/API/Files?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Files.xsd" MetadataType="Schema" ID="bd341d9f-9e78-4424-a5ba-4b21e1be132f" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Files?xsd=xsd3" />
+    <MetadataFile FileName="FilesService.wsdl" MetadataType="Wsdl" ID="19c5868e-8904-4a9d-9c3f-587f72a36aaf" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Files?wsdl" />
+    <MetadataFile FileName="Files.wsdl" MetadataType="Wsdl" ID="146a8c2a-cc28-402f-8751-8e2e60bad7ed" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Files?wsdl=wsdl0" />
+    <MetadataFile FileName="Files1.xsd" MetadataType="Schema" ID="021c37a9-d7fe-413f-988f-96ee03f52ef8" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Files?xsd=xsd0" />
+    <MetadataFile FileName="Files2.xsd" MetadataType="Schema" ID="e7803800-de6c-40d5-afb1-aa3073ef5706" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Files?xsd=xsd1" />
+    <MetadataFile FileName="Files3.xsd" MetadataType="Schema" ID="eab4dd62-9a3e-43dc-b77b-6952ee6c9152" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Files?xsd=xsd2" />
+    <MetadataFile FileName="Files4.xsd" MetadataType="Schema" ID="32de41a3-178b-4e09-a1ac-9dbfdd945481" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Files?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

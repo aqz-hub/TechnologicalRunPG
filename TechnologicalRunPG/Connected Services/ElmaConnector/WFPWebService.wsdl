@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.elma-bpm.ru/WFPWebService/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.elma-bpm.ru/WFPWebService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.elma-bpm.ru/WFPWebService/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="Run">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="instanceName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:WebData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WebData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfWebDataItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWebDataItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebDataItem" nillable="true" type="tns:WebDataItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WebDataItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="tns:WebData" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataArray" type="tns:ArrayOfWebData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfWebData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WebData" nillable="true" type="tns:WebData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RunResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="instanceId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadContext">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="instanceId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadContextResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadContextResult" type="tns:WebData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTasks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="instanceId" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetActiveTasksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetActiveTasksResult" type="tns:ArrayOfTaskInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTaskInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaskInfo" type="tns:TaskInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaskInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExecutorId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExecutorName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreationDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnectorInfo" type="tns:ArrayOfConnectorInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConnectorInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConnectorInfo" type="tns:ConnectorInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConnectorInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExecuteTask">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="taskId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="connectorUid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:WebData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteTaskResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SaveContext">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="instanceId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:WebData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveContextResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Terminate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="instanceId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="reason" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TerminateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageTypeName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:WebData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMessageResult" type="tns:WorkflowMessageSendResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WorkflowMessageSendResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReceivedCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMessageToInstance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="instanceId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="messageTypeName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="data" type="tns:WebData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMessageToInstanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMessageToInstanceResult" type="tns:WorkflowMessageSendResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RunSoapIn">
+    <wsdl:part name="parameters" element="tns:Run" />
+  </wsdl:message>
+  <wsdl:message name="RunSoapOut">
+    <wsdl:part name="parameters" element="tns:RunResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadContextSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadContext" />
+  </wsdl:message>
+  <wsdl:message name="LoadContextSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTasksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetActiveTasks" />
+  </wsdl:message>
+  <wsdl:message name="GetActiveTasksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetActiveTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteTaskSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteTask" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteTaskSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveContextSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveContext" />
+  </wsdl:message>
+  <wsdl:message name="SaveContextSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveContextResponse" />
+  </wsdl:message>
+  <wsdl:message name="TerminateSoapIn">
+    <wsdl:part name="parameters" element="tns:Terminate" />
+  </wsdl:message>
+  <wsdl:message name="TerminateSoapOut">
+    <wsdl:part name="parameters" element="tns:TerminateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageToInstanceSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMessageToInstance" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageToInstanceSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMessageToInstanceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WFPWebServiceSoap">
+    <wsdl:operation name="Run">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Запуск экземпляра процесса</wsdl:documentation>
+      <wsdl:input message="tns:RunSoapIn" />
+      <wsdl:output message="tns:RunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение статуса экземпляра процесса</wsdl:documentation>
+      <wsdl:input message="tns:GetStatusSoapIn" />
+      <wsdl:output message="tns:GetStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadContext">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение значений контекстных переменных</wsdl:documentation>
+      <wsdl:input message="tns:LoadContextSoapIn" />
+      <wsdl:output message="tns:LoadContextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTasks">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Получение списка активных задач</wsdl:documentation>
+      <wsdl:input message="tns:GetActiveTasksSoapIn" />
+      <wsdl:output message="tns:GetActiveTasksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteTask">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Выполнение задачи</wsdl:documentation>
+      <wsdl:input message="tns:ExecuteTaskSoapIn" />
+      <wsdl:output message="tns:ExecuteTaskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveContext">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Сохранение значений контекстных переменных</wsdl:documentation>
+      <wsdl:input message="tns:SaveContextSoapIn" />
+      <wsdl:output message="tns:SaveContextSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Terminate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Прерывание экземпляра процесса</wsdl:documentation>
+      <wsdl:input message="tns:TerminateSoapIn" />
+      <wsdl:output message="tns:TerminateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Отправить сообщение</wsdl:documentation>
+      <wsdl:input message="tns:SendMessageSoapIn" />
+      <wsdl:output message="tns:SendMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageToInstance">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Отправить сообщение в экземпляр процесса</wsdl:documentation>
+      <wsdl:input message="tns:SendMessageToInstanceSoapIn" />
+      <wsdl:output message="tns:SendMessageToInstanceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WFPWebServiceSoap" type="tns:WFPWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Run">
+      <soap:operation soapAction="http://www.elma-bpm.ru/WFPWebService/Run" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="http://www.elma-bpm.ru/WFPWebService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadContext">
+      <soap:operation soapAction="http://www.elma-bpm.ru/WFPWebService/LoadContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTasks">
+      <soap:operation soapAction="http://www.elma-bpm.ru/WFPWebService/GetActiveTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteTask">
+      <soap:operation soapAction="http://www.elma-bpm.ru/WFPWebService/ExecuteTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContext">
+      <soap:operation soapAction="http://www.elma-bpm.ru/WFPWebService/SaveContext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Terminate">
+      <soap:operation soapAction="http://www.elma-bpm.ru/WFPWebService/Terminate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://www.elma-bpm.ru/WFPWebService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageToInstance">
+      <soap:operation soapAction="http://www.elma-bpm.ru/WFPWebService/SendMessageToInstance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WFPWebServiceSoap12" type="tns:WFPWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Run">
+      <soap12:operation soapAction="http://www.elma-bpm.ru/WFPWebService/Run" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="http://www.elma-bpm.ru/WFPWebService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadContext">
+      <soap12:operation soapAction="http://www.elma-bpm.ru/WFPWebService/LoadContext" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveTasks">
+      <soap12:operation soapAction="http://www.elma-bpm.ru/WFPWebService/GetActiveTasks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteTask">
+      <soap12:operation soapAction="http://www.elma-bpm.ru/WFPWebService/ExecuteTask" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContext">
+      <soap12:operation soapAction="http://www.elma-bpm.ru/WFPWebService/SaveContext" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Terminate">
+      <soap12:operation soapAction="http://www.elma-bpm.ru/WFPWebService/Terminate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessage">
+      <soap12:operation soapAction="http://www.elma-bpm.ru/WFPWebService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageToInstance">
+      <soap12:operation soapAction="http://www.elma-bpm.ru/WFPWebService/SendMessageToInstance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WFPWebService">
+    <wsdl:port name="WFPWebServiceSoap" binding="tns:WFPWebServiceSoap">
+      <soap:address location="https://elma.eriskip.com/Modules/EleWise.ELMA.Workflow.Processes.Web/WFPWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WFPWebServiceSoap12" binding="tns:WFPWebServiceSoap12">
+      <soap12:address location="https://elma.eriskip.com/Modules/EleWise.ELMA.Workflow.Processes.Web/WFPWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

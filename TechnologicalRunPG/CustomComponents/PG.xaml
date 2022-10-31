@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="TechnologicalRunPG.CustomComponents.PG"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gif="http://wpfanimatedgif.codeplex.com"
+             xmlns:local="clr-namespace:TechnologicalRunPG.CustomComponents" xmlns:Forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             mc:Ignorable="d" 
+             d:DesignHeight="160" d:DesignWidth="80" MouseLeftButtonUp="UserControl_MouseLeftButtonUp" MouseRightButtonUp="UserControl_MouseRightButtonUp">
+    <Grid>
+        <Border BorderBrush="Black" Background="{Binding BackColor}" BorderThickness="2" CornerRadius="10" HorizontalAlignment="Left" Height="160" VerticalAlignment="Top" Width="80"/>
+        <Image x:Name="statusImage" Source="{Binding StatusImage}" Visibility="{Binding StatusVisibility}" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="35" Margin="22,40,0,0"/>
+        <Label x:Name="deviceNumLabel" Content="{Binding DeviceNumber}" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="80"/>
+        <Label Content="{Binding ModbusAddress}" Margin="0 0,0,-4" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Image x:Name="chargeImage" Source="pack://siteoforigin:,,,/Resources/notCharged.png" HorizontalAlignment="Left" Height="23" Margin="55,14,0,0" VerticalAlignment="Top" Width="20" Stretch="Fill" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label Content="{Binding StatusContent}" FontSize="10" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="0,125,0,0" VerticalAlignment="Top" Width="80"/>
+        <Image x:Name="runImage" Visibility="{Binding RunVisibility}" gif:ImageBehavior.AnimatedSource="pack://siteoforigin:,,,/CustomComponents/process.gif"  HorizontalAlignment="Left" Height="35" Margin="22,40,0,0" VerticalAlignment="Top" Width="35" Source="pack://siteoforigin:,,,/CustomComponents/process.gif" Stretch="Fill"/>
+        <Image x:Name="taskImage" Source="{Binding TaskImage}" HorizontalAlignment="Left" Height="30" Margin="7,90,0,0" VerticalAlignment="Top" Width="30"/>
+        <Image x:Name="protocolImage" Source="{Binding ProtocolImage}" HorizontalAlignment="Left" Height="30" Margin="43,90,0,0" VerticalAlignment="Top" Width="30"/>
+        <ProgressBar Value="{Binding BatteryCharge}" Orientation="Vertical" HorizontalAlignment="Left" Height="19" Margin="58,16,0,0" VerticalAlignment="Top" Width="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" RenderTransformOrigin="0.5,0.5">
+            <ProgressBar.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3bdad2a4-9242-4fe3-adf1-21cc2d0ef218" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://elma.eriskip.com/API/Workflow?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Workflow.xsd" MetadataType="Schema" ID="accfe28d-603b-4e2d-afd4-32082fe931a7" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Workflow?xsd=xsd4" />
+    <MetadataFile FileName="Workflow.wsdl" MetadataType="Wsdl" ID="6f192b44-f7ca-4f05-a3c1-728b30b621ab" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Workflow?wsdl" />
+    <MetadataFile FileName="Workflow1.wsdl" MetadataType="Wsdl" ID="5f84a1b1-b673-4869-a130-5564276c81fa" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Workflow?wsdl=wsdl0" />
+    <MetadataFile FileName="Workflow1.xsd" MetadataType="Schema" ID="55b96323-9590-4250-bb76-2908c3ae9787" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Workflow?xsd=xsd0" />
+    <MetadataFile FileName="Workflow2.xsd" MetadataType="Schema" ID="d5bba4db-f2f8-4909-8cb6-3f0660768b1e" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Workflow?xsd=xsd1" />
+    <MetadataFile FileName="Workflow3.xsd" MetadataType="Schema" ID="475b4ee2-48f8-45d5-a3e1-88b3895bad24" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Workflow?xsd=xsd2" />
+    <MetadataFile FileName="Workflow4.xsd" MetadataType="Schema" ID="233de1db-c74e-4a1f-bc98-3b4fc2d0bab4" SourceId="1" SourceUrl="https://elma.eriskip.com/API/Workflow?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

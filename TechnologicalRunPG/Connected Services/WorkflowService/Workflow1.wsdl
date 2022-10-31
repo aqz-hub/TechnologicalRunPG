@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.elma-bpm.ru/api/Workflow" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.elma-bpm.ru/api/Workflow" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.elma-bpm.ru/api/Workflow/Imports">
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Workflow?xsd=xsd0" namespace="http://www.elma-bpm.ru/api/Workflow" />
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Workflow?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Workflow?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/EleWise.ELMA.Common.Models" />
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Workflow?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/EleWise.ELMA.Common.Models.API" />
+      <xsd:import schemaLocation="https://elma.eriskip.com/API/Workflow?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/EleWise.ELMA.Services.Public" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Workflow_TaskStandardOutputFlows_InputMessage">
+    <wsdl:part name="parameters" element="tns:TaskStandardOutputFlows" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_TaskStandardOutputFlows_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TaskStandardOutputFlowsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_TaskStandardOutputFlows_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:PublicServiceExceptionFault" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_TasksInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:TasksInfo" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_TasksInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TasksInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_TasksInfo_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:PublicServiceExceptionFault" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_ExecuteUserTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteUserTask" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_ExecuteUserTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteUserTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_ExecuteUserTask_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:PublicServiceExceptionFault" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_ExecuteUserTaskAsync_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteUserTaskAsync" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_ExecuteUserTaskAsync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteUserTaskAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_ExecuteUserTaskAsync_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:PublicServiceExceptionFault" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_ExecuteUserTaskStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteUserTaskStatus" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_ExecuteUserTaskStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExecuteUserTaskStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_ExecuteUserTaskStatus_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:PublicServiceExceptionFault" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartableProcesses_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartableProcesses" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartableProcesses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartableProcessesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartableProcesses_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:PublicServiceExceptionFault" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartProcessForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcessForm" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartProcessForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcessFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartProcessForm_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:PublicServiceExceptionFault" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartProcess_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcess" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartProcess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartProcess_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:PublicServiceExceptionFault" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartProcessAsync_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcessAsync" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartProcessAsync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartProcessAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="Workflow_StartProcessAsync_PublicServiceExceptionFault_FaultMessage">
+    <wsdl:part name="detail" element="tns:PublicServiceExceptionFault" />
+  </wsdl:message>
+  <wsdl:portType name="Workflow">
+    <wsdl:operation name="TaskStandardOutputFlows">
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/Workflow/TaskStandardOutputFlows" message="tns:Workflow_TaskStandardOutputFlows_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/Workflow/TaskStandardOutputFlowsResponse" message="tns:Workflow_TaskStandardOutputFlows_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/Workflow/TaskStandardOutputFlows" name="PublicServiceExceptionFault" message="tns:Workflow_TaskStandardOutputFlows_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TasksInfo">
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/Workflow/TasksInfo" message="tns:Workflow_TasksInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/Workflow/TasksInfoResponse" message="tns:Workflow_TasksInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/Workflow/TasksInfo" name="PublicServiceExceptionFault" message="tns:Workflow_TasksInfo_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteUserTask">
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/Workflow/ExecuteUserTask" message="tns:Workflow_ExecuteUserTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/Workflow/ExecuteUserTaskResponse" message="tns:Workflow_ExecuteUserTask_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/Workflow/ExecuteUserTask" name="PublicServiceExceptionFault" message="tns:Workflow_ExecuteUserTask_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteUserTaskAsync">
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/Workflow/ExecuteUserTaskAsync" message="tns:Workflow_ExecuteUserTaskAsync_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/Workflow/ExecuteUserTaskAsyncResponse" message="tns:Workflow_ExecuteUserTaskAsync_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/Workflow/ExecuteUserTaskAsync" name="PublicServiceExceptionFault" message="tns:Workflow_ExecuteUserTaskAsync_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteUserTaskStatus">
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/Workflow/ExecuteUserTaskStatus" message="tns:Workflow_ExecuteUserTaskStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/Workflow/ExecuteUserTaskStatusResponse" message="tns:Workflow_ExecuteUserTaskStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/Workflow/ExecuteUserTaskStatus" name="PublicServiceExceptionFault" message="tns:Workflow_ExecuteUserTaskStatus_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartableProcesses">
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartableProcesses" message="tns:Workflow_StartableProcesses_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartableProcessesResponse" message="tns:Workflow_StartableProcesses_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartableProcesses" name="PublicServiceExceptionFault" message="tns:Workflow_StartableProcesses_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcessForm">
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartProcessForm" message="tns:Workflow_StartProcessForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartProcessFormResponse" message="tns:Workflow_StartProcessForm_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartProcessForm" name="PublicServiceExceptionFault" message="tns:Workflow_StartProcessForm_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcess">
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartProcess" message="tns:Workflow_StartProcess_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartProcessResponse" message="tns:Workflow_StartProcess_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartProcess" name="PublicServiceExceptionFault" message="tns:Workflow_StartProcess_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartProcessAsync">
+      <wsdl:input wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartProcessAsync" message="tns:Workflow_StartProcessAsync_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartProcessAsyncResponse" message="tns:Workflow_StartProcessAsync_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.elma-bpm.ru/api/Workflow/StartProcessAsync" name="PublicServiceExceptionFault" message="tns:Workflow_StartProcessAsync_PublicServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
